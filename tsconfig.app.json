@@ -1,0 +1,38 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "variable-name": {
+    "options": [
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-snake-case",
+      "allow-pascal-case"
+    ]
+  },
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "allow-snake-case",
+      "allow-trailing-underscore",
+      "require-const-for-all-caps",
+      "ban-keywords"
+    ]
+  },
+  "minLength": 0,
+  "maxLength": 6
+}

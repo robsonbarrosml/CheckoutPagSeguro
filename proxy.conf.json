@@ -1,0 +1,16 @@
+{
+    "/pay/*": {
+    "target": "https://sandbox.pagseguro.uol.com.br/",
+      "secure": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/pay" : ""},
+      "changeOrigin": true
+    },
+    "/api/*": {
+    "target": "https://ws.sandbox.pagseguro.uol.com.br/",
+      "secure": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/api" : ""},
+      "changeOrigin": true
+    }
+  }

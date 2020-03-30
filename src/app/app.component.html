@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<div class="panel panel-info">
+  <div class="panel-heading" style="text-align:center"><h1>Loja do Zezinho</h1></div>
+</div>
+
+<div>
+  <div class="row col-xs-1 col-sm-1 col-md-1 col-lg-1" style="justify-content: center;transform: translateY(15%)">
+    <label>Produto:</label>
+  </div>
+  <div class="row col-xs-6 col-sm-6 col-md-6 col-lg-6"  align="center">
+  <select class="form-control" (ngModel)="selectedItem" (input)="chosenItem($event.target.value)">
+    <option *ngFor="let i of items" [value]="i | json">
+      {{i.description}}
+    </option>
+  </select>
+  </div>
+</div>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Código Produto</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Valor Unitário</th>
+        <th scope="col">Valor Envio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{selectedItem.id}}</td>
+        <td>{{selectedItem.description}}</td>
+        <td><input type="text" formControlName="quantity" class="form-control" value="{{selectedItem.quantity}}"
+          (input)="calculateValue($event.target.value)"/></td>
+        <td>{{selectedItem.weight}}g</td>
+        <td>{{selectedItem.amount}}</td>
+        <td>{{selectedItem.shippingCost}}</td>
+      </tr>
+      <tr>
+        <th scope="row" colspan="3"></th>
+        <th scope="row">Valor Total:</th>
+        <th scope="row">{{totalValue}}.00</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="justify-content: center">
+  <div class="row col-xs-3 col-sm-3 col-md-3 col-lg-3" style="justify-content: center;transform: translateY(20%)">
+    <button type="button" class="btn btn-primary" (click)="setPayment()">Efetuar Pagamento</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
